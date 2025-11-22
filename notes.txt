@@ -42,3 +42,18 @@ when a route pattern ends with a trailing slash like "/" or "/static/" - it is c
 
 To restrict subtree paths, we can append the special character {$} to the end of the pattern.
 
+Request URL paths are automatically sanitized. If the request path contains any . or .. elements or repeated slasher, the user will be automatically redirected to an equivalent clean URL.
+
+If a subtree path has been registered and a request is received for that subtee path without a trailing slash, then the user will be automatically sent a 301 permanent redirect to the subtee path with the slash added.
+
+host name matching:
+- It's possible to include host names in the route patterns, which is useful if we have to redirect all HTTP requests to a canonical URL or the app is acting as backend fro multiple sites or services.
+
+In go http.HandleFunc(), allows us to register routes without explicitly declaring a servermux, which uses the default server mux 
+but it is suggested to use locally scoped servermux, as default servemux is globally scoped.
+
+http.DefaultServeMux - 
+
+
+Wildcard route patterns :=
+
