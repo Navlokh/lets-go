@@ -28,3 +28,17 @@ if host is not present (":4000") then server will listen on computers all availa
 
 And also intead of a port we can pass like ":http" or ":http-alt", in this case it will resolve based on /etc/services file
 
+
+--
+
+Trailing slashes in route patterns
+Go's servemux has different matching rules depending on whether a route pattern ends with a trailing slash or not
+
+
+when a pattern doesn't have a trailing slash, it will only be matched.
+
+when a route pattern ends with a trailing slash like "/" or "/static/" - it is called as subtree path pattern, they are matched whenever the start of a request URL path matches the subtree path. 
+
+
+To restrict subtree paths, we can append the special character {$} to the end of the pattern.
+
