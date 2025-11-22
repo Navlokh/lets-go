@@ -57,3 +57,11 @@ http.DefaultServeMux -
 
 Wildcard route patterns :=
 
+
+
+--
+
+Note don't forget to add proper headers before doing w.WriteHeader,
+and set proper content-type headers too,
+
+
