@@ -2,3 +2,29 @@
 
 A common convention for go modules is to base the module path on a URL we own, so that it will be unique.
 
+if we are making a project for others to be used, then module path should be equal to the location the code can be downloaded from.
+
+--
+
+so basically the 3 basic things for a web application are:
+
+1. Handlers - handlers are like controllers in MVC architecture, 
+2. Mux/router - it maintains a mapping between URL routing patterns and the handlers.
+3. Web server - go has an inbuilt webserver, we don't have to rely on external ones like nginx, apache, caddy
+
+
+http.ResponseWriter provides methods fro assembling a HTTP Response
+
+*http.Request is a pointer to a struct which holds information about the current request.
+
+
+go servermux treats the route pattern "/" like a catch all, 
+
+Network addresses:
+
+We have to pass the address in the format of "host:port" to http.ListenAndServe(),
+
+if host is not present (":4000") then server will listen on computers all available interfaces.
+
+And also intead of a port we can pass like ":http" or ":http-alt", in this case it will resolve based on /etc/services file
+
